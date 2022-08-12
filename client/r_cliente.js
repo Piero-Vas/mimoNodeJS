@@ -217,7 +217,7 @@ function autenticarFacebook(req, res, marca, modelo, so, vs, idaplicativo, idpla
         let clave = obtenerClave();
         if (clientes.length <= 0) {
             if (!correo || correo === 'null' || correo == null) {
-                correo = `${Date.now()}@opportunity.planck`;
+                correo = `${Date.now()}@gmail.com`;
                 console.log(correo);
             }
             return f_registrar.regitrar(idaplicativo, celular, correo, clave, nombres, apellidos, cedula, celularValidado, correoValidado, idplataforma, codigoPais, simCountryCode, smn, imei, token, marca, modelo, so, vs, img, req, res);

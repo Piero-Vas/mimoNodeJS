@@ -24,11 +24,11 @@ function regitrar(idaplicativo, celular, correo, clave, nombres, apellidos, cedu
     data.consultarRes(STORE_LIMPIAR_TOKEN, [token], function () {
         data.consultarRes(STORE_REGISTRAR, [idaplicativo, idFacebook, idGoogle, idApple, celular, correo, clave, nombres, apellidos, cedula, celularValidado, correoValidado, idplataforma, codigoPais, simCountryCode, smn, img, meta], function (registro) {
             if (registro['insertId'] <= 0)
-                return res.status(200).send({ estado: -1, error: 'Ocurrio un probelam y no pudimos registrarte, intenta de nuevo mas tarde.' });
+                return res.status(200).send({ estado: -1, error: 'Ocurrio un problema y no pudimos registrarte, intenta de nuevo mas tarde.' });
             let idCliente = registro['insertId'];
             data.consultarRes(STORE_AUTENTICAR, [idCliente], function (clientes) {
                 if (clientes.length <= 0)
-                    return res.status(200).send({ estado: -1, error: 'Ocurrio un probelam y no pudimos registrarte, intenta de nuevo mas tarde.' });
+                    return res.status(200).send({ estado: -1, error: 'Ocurrio un problema y no pudimos registrarte, intenta de nuevo mas tarde.' });
                 let cliente = clientes[0];
                 var auth = randonToken();
                 data.consultarRes(STORE_REGISTRAR_SESSION, [idaplicativo, meta, cliente['id_cliente'], idplataforma, imei, auth, token, marca, modelo, so, vs, auth, token, marca, modelo, so, vs, meta], function (session) {

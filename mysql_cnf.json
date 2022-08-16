@@ -1,7 +1,7 @@
 {
-    "host": "10.108.0.2",
+    "host": "10.116.0.3",
     "user": "node1",
-    "password": "zyDALeQu%4iY0xS^S*JPN21NX",
+    "password": "node1_mimo",
     "connectionLimit": 10,
     "multipleStatements": false,
     "charset": "utf8mb4"

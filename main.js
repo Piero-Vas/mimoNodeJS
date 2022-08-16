@@ -18,13 +18,13 @@ var PORT = 8080;
 
 global._ENVIRONMENT_ = 'developing'//'production';
 global._IS_DEV_ = false;
-global._SERVER = 'http://167.99.60.223/';
+global._SERVER = 'http://35.168.189.160/';
 
 if (process.argv.length >= 3) {
     if (process.argv[2] === 'developing') {
         _ENVIRONMENT_ = 'developing';
         _IS_DEV_ = true;
-        _SERVER = 'http://167.99.60.223/';
+        _SERVER = 'http://35.168.189.160/';
         PORT = 39123;
     }
 }
@@ -75,10 +75,10 @@ app.use('/g/urbe', require('./admin/r_urbe'));
 app.use('/g/ventas', require('./admin/r_ventas'));
 
 const STORE_LIMPIAR =
-    "UPDATE `" + _STORE_ + "`.`cliente_session` SET `on_line` = '0';";
+    "UPDATE " + _STORE_ + ".cliente_session SET on_line = '0';";
 
 const STORE_ON_OFF =
-    "UPDATE `" + _STORE_ + "`.`cliente_session` SET `on_line` = ?, id = ? WHERE `id_cliente` = ? AND `imei` = ? LIMIT 1;";
+    "UPDATE " + _STORE_ + ".cliente_session SET on_line = ?, id = ? WHERE id_cliente = ? AND imei = ? LIMIT 1;";
 
 global.EMIT_;
 
